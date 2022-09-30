@@ -6,25 +6,30 @@ export default function TextForm(props) {
   const handelUpCase = () => {
     let upperText = text.toUpperCase();
     setText(upperText);
+    props.showAlert("Converted to uppercase!","success");
   };
   const handelLowerCase = () => {
     let lowerText = text.toLowerCase();
     setText(lowerText);
+    props.showAlert("Converted to lowercase!","success");
   };
   const handelClearCase = () => {
     let clearText = "";
     setText(clearText);
+    props.showAlert("Cleared texts!","success");
   };
 
   const handelCopyText = () => {
     let getText = document.getElementById("myBox");
     getText.select();
     navigator.clipboard.writeText(getText.value);
+    props.showAlert("Copied to clipboard!","success");
   };
 
   const handelExtraSpaces = () => {
     let getText = text.split(/[ ]+/);
     setText(getText.join(" "));
+    props.showAlert("Extra spaces removed!","success");
   };
 
   const handelOnChange = (event) => {
